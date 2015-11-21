@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumerate}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{forest}
+\usepackage[paperheight=3.75in,paperwidth=11.85in,margin=1in,heightrounded, margin=0.2in]{geometry}
+\usepackage[shortlabels]{enumitem}
+     \setlist[enumerate, 1]{1\textsuperscript{o}}
+\lstset { %
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+}
+
+\newcommand{\s}{\text{ }}
+\newcommand{\ang}[1]{\langle #1 \rangle}
+\newcommand{\brac}[1]{\right\{ #1 \}\left}
+
+\begin{document}
+\noindent
+\textbf{Part a}\\
+\textbf{SEQ}\\
+    $\cfrac{\langle e_1, E,S\rangle \Downarrow\langle v_1, S'\rangle,\langle e_2, E, S'\rangle \Downarrow\langle v_2, S''\rangle}{\text{(seq }e_1\text{ }e_2) \Downarrow \langle v_2, S'' \rangle}$ \\
+
+\noindent
+\textbf{Part b}\\
+\textbf{ALIAS}\\
+$\cfrac{l = E(x_2),\ang{e,E + \{x_1 \rightarrow l\},S} \Downarrow \ang{v_1,S'}}{\text{(alias }x_1\text{ }x_2\text{ }e) \Downarrow \langle v_1, S' \rangle}$\\
+
+\noindent
+\textbf{Part c}\\
+\hspace{20cm}
+\footnotesize
+$\cfrac{\cfrac{}{\ang{1,0,0} \Downarrow \ang{1,0}}INT \cfrac{\cfrac{l=E(x),\cfrac{\cfrac{\cfrac{}{\ang{3,\{x \rightarrow l, y\rightarrow l\},\{l\rightarrow 1\}}, \Downarrow \ang{3, \{l\rightarrow 1\}}}INT , l = E(x) }{\ang{\text{(:= x 3)},\{x \rightarrow l, y\rightarrow l\},\{l\rightarrow 1\}} \Downarrow \ang{3,\{l \rightarrow 3\}}}ASSGN, \cfrac{\cfrac{}{\ang{5,\{x \rightarrow l, y \rightarrow l\}, \{l\rightarrow 3\}} \Downarrow \ang{5,l \rightarrow 3}}INT , l = E(y)}{\ang{\text{(:= y 5)},\{x \rightarrow l, y\rightarrow l\},\{l\rightarrow 3\}},\Downarrow \ang{5, \{l \rightarrow 5\}}} ASSGN }{l = E(x),\ang{\text{(+ (:= x 3) (:= y 5))},\{x \rightarrow l, y\rightarrow l\},\{l\rightarrow 1\}} \Downarrow \ang{8, \{l \rightarrow 5\}}}ADD }{\ang{\text{(alias y x (+ (:= x 3) (:= y 5)))}, \{x\rightarrow l\}, \{l\rightarrow 1\}} \Downarrow \ang{8,\{l\rightarrow 5\}}}ALIAS,\cfrac{l=E(x), v = S(l)}{\ang{x, \{x \rightarrow l\},\{l \rightarrow 5\}} \Downarrow \ang{5,\{l \rightarrow 5\}}}VAR}{\ang{\text{(seq (alias y x (+ (:= x 3) (:= y 5))) x))},\{x\rightarrow l\}, \{l\rightarrow 1\}}\Downarrow \ang{5,L1\rightarrow 5}}SEQ }{\langle(\text{let x 1 (seq (alias y x (+ (:= x 3) (:= y 5))) x)),0,0}\rangle\Downarrow\langle 5,L1\rightarrow5\rangle}\text{LET}$
+\end{document}

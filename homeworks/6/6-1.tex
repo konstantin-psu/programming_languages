@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumerate}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{forest}
+\usepackage[paperheight=3.75in,paperwidth=11.55in,margin=1in,heightrounded, margin=0.2in]{geometry}
+\usepackage[shortlabels]{enumitem}
+     \setlist[enumerate, 1]{1\textsuperscript{o}}
+\lstset { %
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+}
+
+\newcommand{\s}{\text{ }}
+\newcommand{\ang}[1]{\langle #1 \rangle}
+\newcommand{\brac}[1]{\right\{ #1 \}\left}
+
+\begin{document}
+\noindent
+\textbf{Part a}\\
+\textbf{GIF}\\
+    $\cfrac{\{P \wedge E_1\} S_1 \{Q\},\{P \wedge E_2\} S_2 \{Q\},\dots,\{P \wedge E_n\} S_n \{Q\}}{\{P\}\s gif\s E_1 \rightarrow S_1\s\s E_2 \rightarrow S_2\s \dots \s E_n\rightarrow S_n\s end\{Q\}}$ \\
+
+\noindent
+\textbf{Part b}\\
+\hspace{20cm}
+$\cfrac{\cfrac{\cfrac{\cfrac{\cfrac{}{\{z < 0 \wedge x \leq 0\} y:=-x \{z<0 \wedge y \geq 0\}}ASSIGN}{\{z < 0 \wedge x > -5 \wedge x \leq 0\} y:=-x \{z<0 \wedge y \geq 0\}}CONS,\cfrac{\cfrac{}{\{z < 0 \wedge x \geq 0\}  y:=x \s\{z < 0 \wedge y\geq 0\}}ASSIGN}{\{z < 0 \wedge x > -5 \wedge x \geq 0\}  y:=x \s\{z < 0 \wedge y\geq 0\}}CONS}{\{z < 0 \wedge x > -5\} gif \s x \leq 0 \rightarrow y:=-x [] x \geq 0 \rightarrow  y:=x \s end  \{z < 0 \wedge y\geq 0\}}GIF\cfrac{\cfrac{}{\{z - y < 0\}\s z:= z-y \s \{z<0\}}ASSIGN}{\{z < 0 \wedge y\geq 0\}\s z:= z-y \s \{z<0\}}CONS}{\cfrac{\{z < 0 \wedge x > -5\} \s gif \s x \leq 0 \rightarrow y:=-x [] x \geq 0 \rightarrow  y:=x \s end  \s z:= z-y \s \{z<0\}}{\{z < 0\} while\s x > -5 \s do \s gif \s x \leq 0 \rightarrow y:=-x [] x \geq 0 \rightarrow  y:=x \s end  \s z:= z-y \s end \s \{z < 0 \wedge \neg(x > -5)\}}WHILE}COMP}{\{z < 0\} while\s x > -5 \s do \s gif \s x \leq 0 \rightarrow y:=-x [] x \geq 0 \rightarrow  y:=x \s end  \s z:= z-y \s end \s \{z < 0\}}$CONSEQ
+\end{document}
