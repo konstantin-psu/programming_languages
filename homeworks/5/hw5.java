@@ -2,14 +2,14 @@ class X extends Exception {};
 
 class XTest {
     static int f (int x) throws X {
-	if (x > 1000)
+	if (x > 8000)
 	    throw new X();
 	else 
 	    return f (x+1);
     }
     
     static int g (int x) {
-	if (x > 1000)
+	if (x > 8000)
 	    return 0;
 	else
 	    return g (x+1);
@@ -17,7 +17,7 @@ class XTest {
 
 
     static int h (int x) throws X {
-	if (x > 1000) 
+	if (x > 8000) 
 	    throw new X();
 	else 
 	    try {
@@ -28,7 +28,7 @@ class XTest {
     }
 
     static int k (int x) throws X {
-	if (x > 1000) 
+	if (x > 8000) 
 	    return 0;
 	else 
 	    try {

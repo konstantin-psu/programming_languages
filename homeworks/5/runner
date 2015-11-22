@@ -1,18 +1,42 @@
 #!/bin/bash
 
-x=1
-n=ml
-for e in "./hw5" "java XTest"
-do
-    for i in f j h k
-    do
-        while [ $x -lt 1000 ]
-        do
-            echo "$e $i $x" > "$n.$i.$x"
-            time `$e $i $x` >> "$n.$i.$x"
-            x=$(($x + 1))
-        done
-        x=1
-    done
-    n=jav
-done
+max=100000001
+x=$(($max - 1))
+out=results_simple2
+
+echo "ml f"
+time ./hw5 f $x
+
+echo   "ml g"
+time ./hw5 g $x
+
+echo "ml h"
+time ./hw5 h $x
+
+echo   "ml k"
+time ./hw5 k $x
+
+echo "java f"
+time java XTest f $x
+
+echo   "java g"
+time java XTest g $x
+
+echo "java h"
+time java XTest h $x
+
+echo   "java k"
+time java XTest k $x
+#for e in "./hw5" "java XTest"
+#do
+#    for i in f g h k
+#    do
+#        while [ $x -lt $max ]
+#        do
+#            echo "$e $i $x" >> $out
+#           { time `$e $i $x`; } 2>> $out
+#            x=$(($x + 1))
+#        done
+#        x=$max
+#    done
+#done
