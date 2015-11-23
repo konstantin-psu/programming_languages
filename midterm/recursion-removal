@@ -1,0 +1,164 @@
+#1
+---------------------------------------
+void printtree(Tree t) {
+  if (t) {
+    printf("%d\n",t->value);
+    printtree(t->left);
+    printtree(t->right);
+  }
+}
+
+#2 Remove tail recursion.
+---------------------------------------
+
+void printtree(Tree t) {
+    Stack s  = empty;
+    top:
+    while (t) {
+        printf("%d\n",t->value);
+        s.push(t-right);   
+        t=t->left;
+    }
+    if (!s.isEmpty())  {
+        t = s.pop()
+        goto top;
+    }
+       
+}
+
+#3 Remove tail recursion.
+---------------------------------------
+
+void printtree(Tree t) {
+    Stack s  = empty;
+    top:
+    while (t) {
+        printf("%d\n",t->value);
+        s.push(t-right);   
+        t=t->left;
+    }
+    if (!s.isEmpty())  {
+        t = s.pop()
+        goto top;
+    }
+       
+}
+
+#4 Remove tail recursion.
+---------------------------------------
+
+void printtree(Tree t) {
+    Stack s  = empty;
+    s.push(t)
+    while (!s.isEmpty())  {
+        t = s.pop()
+        while (t) {
+            printf("%d\n",t->value);
+            s.push(t-right);   
+            t=t->left;
+        }
+    }
+       
+}
+
+#5 Remove tail recursion.
+---------------------------------------
+
+void printtree(Tree t) {
+    Stack s  = empty;
+    s.push(t)
+    while (!s.isEmpty())  {
+        t = s.pop()
+        while (t) {
+            if (t) {
+                printf("%d\n",t->value);
+                if (t->right())
+                    s.push(t-right);   
+                if (t->left())
+                    s.push(t-left);   
+            }
+        }
+    }
+}
+
+
+#1 Tail recursion removal hw4
+---------------------------------------------
+def quicksort(a:Array[Int], m:Int, n:Int) : Unit =
+top:
+if (m < n) {
+    val j = partition(a,m,n)
+    quicksort(a,m,j)
+    m = j + 1;
+    j = n;
+    goto top;
+}
+
+#1 Tail recursion removal hw4
+---------------------------------------------
+def quicksort(a:Array[Int], m:Int, n:Int) : Unit =
+Stack s = empty;
+top:
+if (m < n) {
+    val j = partition(a,m,n)
+    s.push(j+1)
+    s.push(n)
+    m = m;
+    n = j;
+    goto top;
+}
+if (!s.isEmpty) {
+    n = s.pop
+    m = s.pop
+    goto top;
+}
+
+#1 Tail recursion removal hw4
+---------------------------------------------
+def quicksort(a:Array[Int], m:Int, n:Int) : Unit =
+Stack s = empty;
+push(m)
+push(n)
+
+while (!s.isEmpty) {
+    n = s.pop
+    m = s.pop
+
+    while (m < n) {
+        val j = partition(a,m,n)
+        s.push(j+1)
+        s.push(n)
+        m = m;
+        n = j;
+    }
+}
+
+#1 Tail recursion removal hw4
+---------------------------------------------
+def quicksort(a:Array[Int], m:Int, n:Int) : Unit =
+Stack s = empty;
+push(m)
+push(n)
+
+while (!s.isEmpty) {
+    n = s.pop
+    m = s.pop
+    
+    if (m < n) {
+        val j = partition(a,m,n)
+        if (j +1 < n) {
+            s.push(j+1)
+            s.push(n)
+        }
+        
+        if (j > m){
+            s.push(m)
+            s.push(j)
+        }
+    }
+}
+
+(let f (fun g (fun h (fun x (@ g (@ h x)))))
+     (let q (fun y (if (<= y 10) a b))
+          (let s (if (@ (@ (@ f p) q) w) (<= r 10) b)
+                 ...)))
